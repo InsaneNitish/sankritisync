@@ -10,7 +10,7 @@ import CulturalDetail from './components/cardDetailPage.jsx'
 
 function App() {
   return(
-    <BrowserRouter>
+    <BrowserRouter basename='/sankritisync'>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />

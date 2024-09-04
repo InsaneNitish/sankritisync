@@ -5,6 +5,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import { OAuthProvider } from 'appwrite';
 
 const Login = () => {
+  const baseUrl = window.location.origin + "/sankritisync";
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +21,7 @@ const Login = () => {
         )
         toast.success('Successfully logged in!');
         setTimeout(() => {
-            navigate('/profile');
+            navigate(`/profile`);
           }, 2000);
      } catch (error) {
         console.log(error);
@@ -31,14 +32,14 @@ const Login = () => {
 
   const handleCreateAccount = () => {
     // Navigate to the Create Account page
-    navigate('/register');
+    navigate(`/register`);
   };
 
   const oauthSignUp = async ()=>{
     account.createOAuth2Session(
       OAuthProvider.Google,
-      'http://localhost:5173/profile',
-      'http://localhost:5173/register',
+      `${baseUrl}/profile`,
+      `${baseUrl}/register`,
 
     )
   }

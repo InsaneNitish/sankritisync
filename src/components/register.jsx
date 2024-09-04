@@ -5,6 +5,7 @@ import {v4 as uuidv4} from "uuid";
 import { OAuthProvider } from 'appwrite';
 
 const Register = () => {
+  const baseUrl = window.location.origin + "/sankritisync";
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,7 +26,7 @@ const Register = () => {
     promise.then(
       function(response){
         console.log(response);
-        navigate('/login');//success
+        navigate(`/login`);//success
       },
       function(error){
         console.log(error);//failure
@@ -37,9 +38,8 @@ const Register = () => {
   const oauthSignUp = async ()=>{
     account.createOAuth2Session(
       OAuthProvider.Google,
-      'http://localhost:5173/profile',
-      'http://localhost:5173/register',
-
+      `${baseUrl}/profile`,
+      `${baseUrl}/register`,
     )
   }
 
