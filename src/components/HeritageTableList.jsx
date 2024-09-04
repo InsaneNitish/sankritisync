@@ -119,28 +119,30 @@ const HeritageTableList = () => {
         {isLoading ? (
           <div className="flex items-center justify-center h-48 text-gray-600">Loading...</div>
         ) : (
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-yellow-600 text-white">
-                <th className="py-2 px-4 border">Name</th>
-                <th className="py-2 px-4 border">State</th>
-                <th className="py-2 px-4 border">City</th>
-                <th className="py-2 px-4 border">Description</th>
-                <th className="py-2 px-4 border">Importance</th>
-              </tr>
-            </thead>
-            <tbody>
-              {heritageData.map((site) => (
-                <tr key={site.$id} className="hover:bg-yellow-100">
-                  <td className="py-2 px-4 border">{site.name}</td>
-                  <td className="py-2 px-4 border">{site.state}</td>
-                  <td className="py-2 px-4 border">{site.city}</td>
-                  <td className="py-2 px-4 border">{site.description}</td>
-                  <td className="py-2 px-4 border">{site.importance}</td>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-max text-left border-collapse">
+              <thead>
+                <tr className="bg-yellow-600 text-white">
+                  <th className="py-2 px-4 border">Name</th>
+                  <th className="py-2 px-4 border">State</th>
+                  <th className="py-2 px-4 border">City</th>
+                  <th className="py-2 px-4 border">Description</th>
+                  <th className="py-2 px-4 border">Importance</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {heritageData.map((site) => (
+                  <tr key={site.$id} className="hover:bg-yellow-100">
+                    <td className="py-2 px-4 border">{site.name}</td>
+                    <td className="py-2 px-4 border">{site.state}</td>
+                    <td className="py-2 px-4 border">{site.city}</td>
+                    <td className="py-2 px-4 border">{site.description}</td>
+                    <td className="py-2 px-4 border">{site.importance}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>
